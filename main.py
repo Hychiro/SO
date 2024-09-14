@@ -17,8 +17,9 @@ save_figures(figures)
 # Gerar e salvar os gráficos de Frame vs. Time e Variabilidade vs. Time
 plot_time_graphs(resultList, pageListCasesOfAnalysis, variabilityOfPages, frameValues)
 
-# # Exemplo com iteração a cada segundo.
+# Exemplo com iteração a cada segundo.
 # frame = 3
 # clock = np.zeros((frame,2))
 # exemplePageList = [6, 3, 6, 3, 2, 5, 1, 6]
+# print(f"lista de paginas a ser acessada: {exemplePageList}")
 # startClockWithDisplay(exemplePageList,clock,frame)

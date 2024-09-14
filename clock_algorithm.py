@@ -65,7 +65,7 @@ def updateClock2(page, clock, clockFrame, pointer, fault, found):
         clock_display = generate_clock_display(clock=clock, pointer=pointer)
         print("PAGE FOUND")
         print(clock_display)
-        time.sleep(1)
+        time.sleep(2)
         return pointer, clock, fault, found
     else:
         fault += 1
@@ -77,7 +77,7 @@ def updateClock2(page, clock, clockFrame, pointer, fault, found):
             clock_display = generate_clock_display(clock=clock, pointer=pointer)
             print("PAGE NOT FOUND")
             print(clock_display)
-            time.sleep(1)
+            time.sleep(2)
             return pointer, clock, fault, found
         else:
             clock[pointer, 1] = 0
@@ -87,7 +87,7 @@ def updateClock2(page, clock, clockFrame, pointer, fault, found):
             clock_display = generate_clock_display(clock=clock, pointer=pointer)
             print("PAGE BITR RESET")
             print(clock_display)
-            time.sleep(1)
+            time.sleep(2)
             return updateClock2(page=page, clock=clock, clockFrame=clockFrame, pointer=pointer, fault=fault, found=found)
 
 # Função para iniciar o processo de substituição de páginas usando o algoritmo de relógio
@@ -104,6 +104,7 @@ def startClockWithDisplay(pagelist, clock, frame):
     fault = 0
     found = 0
     for each in pagelist:
+        print(f"Pagina a ser acessada: {each}")
         pointer, clock, fault, found = updateClock2(page=each, clock=clock, clockFrame=frame, pointer=pointer, fault=fault, found=found)
     print(f"Houveram {fault} faltas sendo {frame} delas para preencher o frame do Clock")
     print(f"Isso resulta num final de {fault-frame} faltas ocorridas")
